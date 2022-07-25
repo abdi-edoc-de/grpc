@@ -1,0 +1,14 @@
+syntax = "proto3";
+package calculator;
+
+option go_package = "github.com/abdi-edoc-de/grp_course_pro/calculator/proto";
+
+import "sum.proto";
+import "prime.proto";
+import "average.proto";
+service CalculatorService {
+    rpc Sum(SumRequest) returns (SumResponse);
+    rpc Prime(PrimeRequest) returns (stream PrimeResponse);
+    rpc Average(stream AverageRequest) returns (AverageResponse);
+}
+

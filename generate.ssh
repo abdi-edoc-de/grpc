@@ -1,0 +1,15 @@
+protoc greet/greetPb/greet.proto --go_out=plugin:gRpc.
+protoc --proto_path=greet --go-grpc_out=greet/  greet/greetPb/greet.proto
+
+
+protoc -I root --go_out=. --go_opt=module=module_path --go-grpc-out=. --go-grpc_opt=module=module_path after_root_path_goes_here
+protoc -I greet --go_out=. --go_opt=module=module_path --go-grpc-out=. --go-grpc_opt=module=module_path after_root_path_goes_here
+
+
+google.golang.org/protobuf/cmd/protoc-gen-go@v1.28
+go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.2
+export PATH="$PATH:$(go env GOPATH)/bin"
+main 
+
+protoc -I greet/proto --go_out=. --go_opt=module=github.com/abdi-edoc-de/grp_course_pro --go-grpc_out=. --go-grpc_opt=module=github.com/abdi-edoc-de/grp_course_pro greet/proto/greet.proto
+protoc -I sum/proto --go_out=. --go_opt=module=github.com/abdi-edoc-de/grp_course_pro --go-grpc_out=. --go-grpc_opt=module=github.com/abdi-edoc-de/grp_course_pro sum/proto/sum.proto

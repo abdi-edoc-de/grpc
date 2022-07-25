@@ -1,0 +1,14 @@
+syntax = "proto3";
+package calculator;
+
+option go_package = "github.com/abdi-edoc-de/grp_course_pro/calculator/proto";
+
+message AverageRequest {
+    int32 Number = 1;
+}
+
+message AverageResponse {
+    int32 Result = 2;
+}
+
+
