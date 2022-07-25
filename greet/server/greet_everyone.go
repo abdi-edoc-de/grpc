@@ -25,5 +25,4 @@ func (s *server) GreetEveryone( stream pb.GreetService_GreetEveryoneServer) erro
 			log.Fatalf("error while sengin response : %v", err)
 		}
 	}
-	return nil
 }
