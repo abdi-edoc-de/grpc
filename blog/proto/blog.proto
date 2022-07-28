@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package blog;
+
+option go_package = "github.com/abdi-edoc-de/grp_course_pro/blog/proto";
+import "google/protobuf/empty.proto";
+message Blog {
+    string id = 1;
+    string authorId = 2;
+    string title = 3;
+    string content = 4;
+}
+
+message BlogId {
+    string id = 1;
+}
+
+service BlogService {
+    rpc CreateBlog (Blog) returns (BlogId);
+    rpc ReadBlog(BlogId) returns (Blog);
+    rpc UpdateBlog(Blog) returns(google.protobuf.Empty);
+    rpc DeleltBlog(BlogId) returns( google.protobuf.Empty);
+    rpc ListBlog(google.protobuf.Empty) returns (stream Blog);
+
+}
+

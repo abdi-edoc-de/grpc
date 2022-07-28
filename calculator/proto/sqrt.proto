@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package calculator;
+
+option go_package = "github.com/abdi-edoc-de/grp_course_pro/calculator/proto";
+
+
+message SqrtRequest {
+    int32 Number = 1;
+}
+message SqrtResponse {
+    double Result = 1;
+}
+
