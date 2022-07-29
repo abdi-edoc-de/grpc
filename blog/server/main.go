@@ -31,10 +31,10 @@ func main(){
 	if err != nil{
 		log.Fatalf("error while trying to listen on %v address  with error %v",adrs, err)
 	}
-	s := grpc.NewServer()
+	s := grpc.NewServer(grpc.UnaryInterceptor(unaryIntercept))
 	pb.RegisterBlogServiceServer(s, &server{})
 	log.Printf("the server is listening on %v", adrs)
-	if err := s.Serve(lis); err != nil{
+	if err :=  s.Serve(lis); err != nil{
 		log.Fatalf("error while listing with error : %v", err)
 	}
 }

@@ -13,15 +13,16 @@ func main() {
 		log.Fatalf("error wihle creating connection in client file : %v", err)
 	}
 	c:=pb.NewBlogServiceClient(conn)
+	doCreate(c)
 	// doRead(c, doCreate(c))
 	// blog := doRead(c, doCreate(c))
 	// blog.Title = "life updated"
 	// doUpdate(c, blog)
 	// doListBlog(c)
-	id := doCreate(c)
-	doRead(c, id)
-	doDelelte(c, id)
-	doRead(c, id)
+	// id := doCreate(c)
+	// doRead(c, id)
+	// doDelelte(c, id)
+	// doRead(c, id)
 	
 
 

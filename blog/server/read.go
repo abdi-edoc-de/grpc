@@ -23,7 +23,7 @@ func (s *server) ReadBlog(ctx context.Context, in *pb.BlogId) (*pb.Blog, error){
 	if err != nil{
 		return nil, status.Errorf(
 			codes.InvalidArgument,
-			fmt.Sprintf("invalid id as argument"),
+			fmt.Sprintf("invalid id as argument error : %v", err),
 		)
 	}
 	filter := bson.M{"_id":oid}

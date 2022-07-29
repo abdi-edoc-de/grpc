@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"log"
+	"time"
 
 	pb "github.com/abdi-edoc-de/grp_course_pro/blog/proto"
 	"go.mongodb.org/mongo-driver/bson/primitive"
@@ -32,6 +33,8 @@ func (s *server) CreateBlog(ctx context.Context, in *pb.Blog) (*pb.BlogId, error
 			fmt.Sprintf("Internal error : %v\n",err),
 		)
 	}
+	time.Sleep(10 * time.Second)
+
 	return &pb.BlogId{
 		Id : oid.Hex(),
 	}, nil
